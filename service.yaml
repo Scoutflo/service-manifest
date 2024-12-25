@@ -9,7 +9,7 @@ metadata:
     app: gab-app
     environment: ""
 spec:
-  type: LoadBalancer  # Exposes the service via an external load balancer (for public access)
+  type: CLusterIP  # Exposes the service via an external load balancer (for public access)
   selector:
     app: gab-app
   ports:
