@@ -4,21 +4,21 @@ metadata:
   name: my-service
   namespace: scoutflo-namespace
   labels:
-    app: gab-app
+    app: my-service
     environment: "dev"  # Default value, can be set in the pipeline
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: gab-app
+      app: my-service
   template:
     metadata:
       labels:
-        app: gab-app
+        app: my-service
         environment: "dev"  # Default value, can be set in the pipeline
     spec:
       containers:
-        - name: gab-app-container
+        - name: my-service-container
           image: ""  # Placeholder for image
           ports:
             - containerPort: 80
@@ -33,7 +33,7 @@ spec:
             - name: ENVIRONMENT
               value: "dev"  # Can be set from the pipeline
       imagePullSecrets:
-        - name: gab-app-secret
+        - name: scoutflo-certmanager-secret  #Picking up the Cloud Creds stored in K8s secret during cluster creation
 
 ----------------------------------------------------------------------------------------------------------------------------------------        
 
